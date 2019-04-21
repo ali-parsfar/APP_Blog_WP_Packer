@@ -1,0 +1,57 @@
+{
+    "variables": {
+      "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+      "aws_secret_key": "{{env `AWS_SECRET_KEY`}}"
+  },
+    
+    "builders": [{
+        "type":"amazon-ebs",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "instance_type": "t2.micro",
+        "region": "ap-southeast-2",
+        "ssh_username": "ec2-user",
+        "ami_name": "AWSLNX2-WP-for-Blog-01",
+        "source_ami_filter": {
+          "filters": {
+            "virtualization-type": "hvm",
+            "name": "amzn2-ami-hvm-2.0.????????-x86_64-gp2",
+            "root-device-type": "ebs"
+          },
+          "owners": ["137112412989"],
+          "most_recent": true
+        }
+    }],
+    "provisioners": [
+        {
+        "type": "file",
+        "source": "files/*",
+        "destination": "~"
+        },
+        {
+        "type": "shell",
+        "inline": [
+           "sudo chmod +x ~/script.sh",
+           "sudo ~/script.sh"
+                  ]
+    }],
+
+"provisioners": [
+{
+"type": "ansible",
+"playbook_file": "files/web02/mdb.yml",
+"ansible_env_vars": ["ANSIBLE_FORCE_COLOR=true"],
+"sftp_command": "/usr/libexec/openssh/sftp-server -e",
+"user": "ec2-user",
+"extra_arguments": ["-v"]
+
+    }],
+
+    "post-processors": [{
+      "type": "manifest",
+      "output": "manifest.json",
+      "strip_path": true
+}]
+
+  }
+
