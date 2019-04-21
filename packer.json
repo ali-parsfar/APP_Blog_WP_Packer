@@ -39,7 +39,7 @@
 "provisioners": [
 {
 "type": "ansible",
-"playbook_file": "files/web02/mdb.yml",
+"playbook_file": "mdb.yml",
 "ansible_env_vars": ["ANSIBLE_FORCE_COLOR=true"],
 "sftp_command": "/usr/libexec/openssh/sftp-server -e",
 "user": "ec2-user",
