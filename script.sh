@@ -23,9 +23,9 @@ sudo cp -r wordpress/* /var/www/html
 sudo rm -rf wordpress
 sudo rm -f latest.tar.gz
 sudo mv wp-config-sample.php wp-config.php
-sed -i -e 's/database_name_here/blog_wp_tst/g' p-config.php
-sed -i -e 's/username_here/blog/g' p-config.php
-sed -i -e 's/password_here/Bl0g_wp_tst/g' p-config.php
+sed -i -e 's/database_name_here/blog_wp_tst/g' wp-config.php
+sed -i -e 's/username_here/blog/g' wp-config.php
+sed -i -e 's/password_here/Bl0g_wp_tst/g' wp-config.php
 sudo chown -R apache:apache /var/www/html/*
 sudo chmod 755 /var/www/html/*
 sudo systemctl  restart httpd
