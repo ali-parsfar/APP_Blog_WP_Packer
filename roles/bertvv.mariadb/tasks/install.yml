@@ -5,7 +5,7 @@
   yum_repository:
     name: MariaDB
     description: Official MariaDB repository
-    baseurl: "http://{{ mariadb_mirror }}/{{ mariadb_version }}/{{ ansible_distribution|lower|regex_replace('amazonNA', 'centos')|regex_replace('oraclelinux', 'centos') }}{{ ansible_distribution_major_version }}-amd64"
+    baseurl: "http://{{ mariadb_mirror }}/{{ mariadb_version }}/{{ ansible_distribution|lower|regex_replace('amazon', 'centos')|regex_replace('oraclelinux', 'centos') }}7-amd64"
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: true
   tags: mariadb
