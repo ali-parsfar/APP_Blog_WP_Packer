@@ -26,13 +26,13 @@
         {
         "type": "file",
         "source": "script.sh",
-        "destination": "~/script.sh"
+        "destination": "/tmp/script.sh"
         },
         {
         "type": "shell",
         "inline": [
-           "sudo chmod +x ~/script.sh",
-           "sudo ~/script.sh"
+           "sudo chmod +x /tmp/script.sh",
+           "sudo /tmp/script.sh"
                   ]
     }],
 
