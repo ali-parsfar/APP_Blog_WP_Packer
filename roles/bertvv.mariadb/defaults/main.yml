@@ -3,7 +3,7 @@
 
 mariadb_databases: []
 mariadb_users: []
-mariadb_root_password: 'P13@$3:xCh@ng3m3'
+mariadb_root_password: 'P13@s3Ch@ng3m3'
 
 mariadb_mirror: yum.mariadb.org
 mariadb_version: '10.3'
